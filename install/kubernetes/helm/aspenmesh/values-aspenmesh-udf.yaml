@@ -202,6 +202,9 @@ prometheus:
     nodePort:
       enabled: true
       port: 30001
+
+jaeger:
+  enabled: false
   
 cassandra:
   enabled: true
