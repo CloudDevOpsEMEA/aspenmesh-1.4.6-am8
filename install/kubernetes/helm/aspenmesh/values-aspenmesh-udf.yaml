@@ -135,7 +135,10 @@ aspen-mesh-dashboard:
   image: dashboard-1.4.6-am8
 
   replicaCount: 2
-  nodePort: 30000
+  service:
+    nodePort:
+      enabled: true
+      port: 30000
 
 aspen-mesh-secure-ingress:
   enabled: true
@@ -148,7 +151,10 @@ aspen-mesh-secure-ingress:
   externalDnsEnabled: false
 
   replicaCount: 2
-  nodePort: 30001
+  service:
+    nodePort:
+      enabled: true
+      port: 30002
 
 aspen-mesh-metrics-collector:
   serviceImage: metrics-collector-service-1.4.6-am8
@@ -195,6 +201,7 @@ prometheus:
   service:
     nodePort:
       enabled: true
+      port: 30001
   
 cassandra:
   enabled: true

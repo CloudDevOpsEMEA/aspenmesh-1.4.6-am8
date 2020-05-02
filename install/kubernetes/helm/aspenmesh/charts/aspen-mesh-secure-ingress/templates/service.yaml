@@ -9,12 +9,35 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  type: NodePort
-  ports:
-  - name: https
-    port: 443
-    protocol: TCP
-    targetPort: 19001
-    nodePort: {{ .Values.nodePort }}
   selector:
     istio: aspen-mesh-secure-ingress
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 19001
+
+{{- if .Values.service.nodePort.enabled }}
+# Using separate service for nodeport.
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aspen-mesh-secure-ingress-nodeport
+  namespace: {{ .Release.Namespace }}
+  labels:
+    istio: aspen-mesh-secure-ingress
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: NodePort
+  selector:
+    app: aspen-mesh-secure-ingress
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 19001
+      nodePort: {{ .Values.service.nodePort.port }}
+{{- end }}

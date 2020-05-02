@@ -17,12 +17,12 @@ spec:
   selector:
     app: prometheus
   ports:
-  - name: http-prometheus
-    protocol: TCP
-    port: 9090
+    - name: http-prometheus
+      protocol: TCP
+      port: 9090
 
 {{- if .Values.service.nodePort.enabled }}
-# Using separate ingress for nodeport, to avoid conflict with pilot e2e test configs.
+# Using separate service for nodeport.
 ---
 apiVersion: v1
 kind: Service
@@ -36,10 +36,11 @@ metadata:
     release: {{ .Release.Name }}
 spec:
   type: NodePort
-  ports:
-  - port: 9090
-    nodePort: {{ .Values.service.nodePort.port }}
-    name: http-prometheus
   selector:
     app: prometheus
+  ports:
+    - name: http-prometheus
+      protocol: TCP
+      port: 9090
+      nodePort: {{ .Values.service.nodePort.port }}
 {{- end }}
