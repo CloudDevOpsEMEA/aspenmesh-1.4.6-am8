@@ -192,6 +192,9 @@ sidecarInjectorWebhook:
 
 prometheus:
   enabled: true
+  service:
+    nodePort:
+      enabled: true
   
 cassandra:
   enabled: true
