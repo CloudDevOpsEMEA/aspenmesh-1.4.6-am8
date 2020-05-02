@@ -133,7 +133,9 @@ aspen-mesh-controlplane:
 aspen-mesh-dashboard:
   enabled: true
   image: dashboard-1.4.6-am8
+
   replicaCount: 2
+  nodePort: 30000
 
 aspen-mesh-secure-ingress:
   enabled: true
@@ -146,6 +148,7 @@ aspen-mesh-secure-ingress:
   externalDnsEnabled: false
 
   replicaCount: 2
+  nodePort: 30001
 
 aspen-mesh-metrics-collector:
   serviceImage: metrics-collector-service-1.4.6-am8
