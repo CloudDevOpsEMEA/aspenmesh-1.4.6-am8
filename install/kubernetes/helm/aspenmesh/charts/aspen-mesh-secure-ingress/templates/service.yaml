@@ -9,10 +9,12 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
+  type: NodePort
   ports:
   - name: https
     port: 443
     protocol: TCP
     targetPort: 19001
+    nodePort: 30000
   selector:
     istio: aspen-mesh-secure-ingress

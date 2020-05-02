@@ -145,6 +145,8 @@ aspen-mesh-secure-ingress:
   externalDnsAnnotation: "policy.aspenmesh.io/externaldns"
   externalDnsEnabled: false
 
+  replicaCount: 2
+
 aspen-mesh-metrics-collector:
   serviceImage: metrics-collector-service-1.4.6-am8
   server:
