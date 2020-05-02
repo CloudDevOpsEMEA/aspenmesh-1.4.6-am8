@@ -33,7 +33,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: aspen-mesh-secure-ingress
+    istio: aspen-mesh-secure-ingress
   ports:
     - name: https
       protocol: TCP
