@@ -5,10 +5,10 @@
 # and that NodePorts are not conflicting.
 # Disable specifc gateway by setting the `enabled` to false.
 #
-enabled: true
+enabled: false
 
 istio-ingressgateway:
-  enabled: true
+  enabled: false
   #
   # Secret Discovery Service (SDS) configuration for ingress gateway.
   #
