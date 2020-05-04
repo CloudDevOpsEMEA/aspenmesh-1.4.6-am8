@@ -169,6 +169,11 @@ aspen-mesh-metrics-collector:
   alertmanagerImage: alertmanager-1.4.6-am8
   configmapReloadImage: configmap-reloader-1.4.6-am8
 
+  service:
+    nodePort:
+      enabled: true
+      port: 30003
+
 traffic-claim-enforcer:
   enabled: true
   image: traffic-claim-enforcer-1.4.6-am8
