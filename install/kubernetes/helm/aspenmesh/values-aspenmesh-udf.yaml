@@ -130,6 +130,13 @@ aspen-mesh-controlplane:
       memory: "128Mi"
       cpu: "100m"
 
+  service:
+    nodePort:
+      enabled: true
+      httpAdminPort: 30100
+      httpListenPort: 30101
+      grpcListenPort: 30102
+
 aspen-mesh-dashboard:
   enabled: true
   image: dashboard-1.4.6-am8
