@@ -25,9 +25,10 @@ spec:
       targetPort: http-admin
   selector:
     app: aspen-mesh-controlplane
----
 
 {{- if .Values.service.nodePort.enabled }}
+---
+# Using separate service for nodeport.
 apiVersion: v1
 kind: Service
 metadata:
@@ -47,17 +48,14 @@ spec:
     - port: 19001
       name: http
       targetPort: {{ template "aspen-mesh-controlplane.httpTargetPort" . }}
-      nodePort: {{ .Values.service.nodePort.httpListenPort }}
+      nodePort: {{ .Values.service.nodePort.port }}
     - port: 19000
       name: grpc
       targetPort: grpc
-      nodePort: {{ .Values.service.nodePort.grpcListenPort }}
     - port: 9105
       name: http-admin
       targetPort: http-admin
-      nodePort: {{ .Values.service.nodePort.httpAdminPort }}
   selector:
     app: aspen-mesh-controlplane
   type: NodePort
 {{- end }}
----

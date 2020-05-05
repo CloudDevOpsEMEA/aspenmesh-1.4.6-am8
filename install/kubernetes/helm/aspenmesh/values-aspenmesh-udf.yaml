@@ -133,19 +133,13 @@ aspen-mesh-controlplane:
   service:
     nodePort:
       enabled: true
-      httpAdminPort: 30100
-      httpListenPort: 30101
-      grpcListenPort: 30102
+      port: 30001
 
 aspen-mesh-dashboard:
   enabled: true
   image: dashboard-1.4.6-am8
 
   replicaCount: 2
-  service:
-    nodePort:
-      enabled: true
-      port: 30000
 
 aspen-mesh-secure-ingress:
   enabled: true
@@ -161,7 +155,7 @@ aspen-mesh-secure-ingress:
   service:
     nodePort:
       enabled: true
-      port: 30002
+      port: 31000
 
 aspen-mesh-metrics-collector:
   serviceImage: metrics-collector-service-1.4.6-am8
@@ -179,7 +173,7 @@ aspen-mesh-metrics-collector:
   service:
     nodePort:
       enabled: true
-      port: 30003
+      port: 30002
 
 traffic-claim-enforcer:
   enabled: true
@@ -213,10 +207,14 @@ prometheus:
   service:
     nodePort:
       enabled: true
-      port: 30001
+      port: 30004
 
 jaeger:
-  enabled: false
+  enabled: true
+  service:
+    nodePort:
+      enabled: true
+      port: 30003
   
 cassandra:
   enabled: true

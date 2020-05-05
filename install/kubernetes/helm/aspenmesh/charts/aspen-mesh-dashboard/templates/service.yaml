@@ -15,27 +15,3 @@ spec:
     - name: http
       port: 80
       targetPort: http
-
-{{- if .Values.service.nodePort.enabled }}
-# Using separate service for nodeport.
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: aspen-mesh-dashboard-nodeport
-  namespace: {{ .Release.Namespace }}
-  labels:
-    app: aspen-mesh-dashboard
-    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
-spec:
-  type: NodePort
-  selector:
-    app: aspen-mesh-dashboard
-  ports:
-    - name: http
-      port: 80
-      targetPort: http
-      nodePort: {{ .Values.service.nodePort.port }}
-{{- end }}
