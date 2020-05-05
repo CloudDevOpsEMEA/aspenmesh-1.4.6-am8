@@ -210,7 +210,7 @@ prometheus:
       port: 30004
 
 jaeger:
-  enabled: true
+  enabled: false
   service:
     nodePort:
       enabled: true
