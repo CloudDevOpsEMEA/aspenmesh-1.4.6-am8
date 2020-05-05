@@ -5,5 +5,5 @@ metadata:
 spec:
   mode: 'ON_WITH_INCLUSION'
   inclusion:
-    namespaces: ["default"]
+    namespaces: ["bookinfo"]
   enforcement_mode: PERMISSIVE
