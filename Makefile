@@ -14,8 +14,12 @@ ASPENMESH_NAMESPACE_SPEC=./kubernetes/namespace-aspenmesh.yaml
 OPENEBS_NAMESPACE=aspenmesh
 OPENEBS_NAMESPACE_SPEC=./kubernetes/namespace-openebs.yaml
 
+BOOKINFO_NAMESPACE=bookinfo
+BOOKINFO_NAMESPACE_SPEC=./kubernetes/namespace-bookinfo.yaml
+
 HELM_ISTIO_INIT=./install/kubernetes/helm/istio-init
 HELM_ASPENMESH=./install/kubernetes/helm/aspenmesh
+
 ASPENMESH_LOCAL_VALUES=${HELM_ASPENMESH}/values-aspenmesh-udf.yaml
 
 ##### Istio init #####
@@ -47,3 +51,17 @@ helm_install_openebs: ## Install openebs
 helm_remove_openebs: ## Remove openebs
 	helm install --namespace ${OPENEBS_NAMESPACE} openebs stable/openebs --version 1.9.0
 	kubectl delete -f ${OPENEBS_NAMESPACE_SPEC}
+
+
+##### Bookinfo Sample Application #####
+kubernetes_install_bookinfo:: ## Install bookinfo sample application
+	kubectl apply -f ${BOOKINFO_NAMESPACE_SPEC}
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/pullsecret.yaml
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/bookinfo/platform/kube/bookinfo.yaml
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/bookinfo-traffic-generator.yaml
+
+kubernetes_remove_bookinfo:: ## Install bookinfo sample application
+	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/bookinfo-traffic-generator.yaml
+	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/bookinfo/platform/kube/bookinfo.yaml
+	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/pullsecret.yaml
+	kubectl delete -f ${BOOKINFO_NAMESPACE_SPEC}
