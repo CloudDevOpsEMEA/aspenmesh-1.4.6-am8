@@ -230,7 +230,7 @@ cert-manager:
 
 external-dns:
   image: external-dns-1.4.6-am8
-  enabled: true
+  enabled: false
   fullnameOverride: aspen-mesh-external-dns
 
   annotationFilter: "policy.aspenmesh.io/externaldns=true"
