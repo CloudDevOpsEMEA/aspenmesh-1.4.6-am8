@@ -17,6 +17,12 @@ OPENEBS_NAMESPACE_SPEC=./kubernetes/namespace-openebs.yaml
 BOOKINFO_NAMESPACE=bookinfo
 BOOKINFO_NAMESPACE_SPEC=./kubernetes/namespace-bookinfo.yaml
 
+ISTIO_SYSTEM_NAMESPACE=istio-system
+ISTIO_SYSTEM_NAMESPACE_SPEC=./kubernetes/namespace-istio-system.yaml
+
+PRIVATE_KEY_CERT=./kubernetes/private-key.pem
+WILDCARD_CERT=./kubernetes/wildcard-cert.pem
+
 KUBE_DASHBOARD_SPEC=./kubernetes/dashboard.yaml
 
 HELM_ISTIO_INIT=./install/kubernetes/helm/istio-init
@@ -54,6 +60,10 @@ helm_remove_openebs: ## Remove openebs
 	helm install --namespace ${OPENEBS_NAMESPACE} openebs stable/openebs --version 1.9.0
 	kubectl delete -f ${OPENEBS_NAMESPACE_SPEC}
 
+##### Ingress certificates #####
+install_certificates: ## Installs the certificates for secure ingress
+	kubectl apply -f ${ISTIO_SYSTEM_NAMESPACE_SPEC}
+	kubectl create secret tls --namespace ${ISTIO_SYSTEM_NAMESPACE} bookinfo-bookinfo --key ${PRIVATE_KEY_CERT} --cert ${WILDCARD_CERT}
 
 ##### Bookinfo Sample Application #####
 kubernetes_install_bookinfo: ## Install bookinfo sample application
