@@ -30,6 +30,7 @@ galley:
 
 gateways:
   istio-ingressgateway:
+    enabled: true
     autoscaleMin: 2
     podAntiAffinityLabelSelector:
     - key: app
