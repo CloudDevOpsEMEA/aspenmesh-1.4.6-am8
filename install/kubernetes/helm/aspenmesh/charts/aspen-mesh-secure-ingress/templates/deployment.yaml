@@ -10,7 +10,7 @@ metadata:
     heritage: {{ .Release.Service }}
     istio: aspen-mesh-secure-ingress
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       istio: aspen-mesh-secure-ingress

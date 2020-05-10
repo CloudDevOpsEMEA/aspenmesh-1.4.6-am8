@@ -39,7 +39,7 @@ gateways:
     sds:
       enabled: true
   istio-egressgateway:
-    enabled: false
+    enabled: true
     autoscaleMin: 2
     podAntiAffinityLabelSelector:
     - key: app
@@ -150,12 +150,6 @@ aspen-mesh-secure-ingress:
   resources: {}
   externalDnsAnnotation: "policy.aspenmesh.io/externaldns"
   externalDnsEnabled: false
-
-  replicaCount: 2
-  service:
-    nodePort:
-      enabled: true
-      port: 31000
 
 aspen-mesh-metrics-collector:
   serviceImage: metrics-collector-service-1.4.6-am8
