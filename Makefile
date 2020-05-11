@@ -8,10 +8,12 @@ help: ## This help.
 
 .DEFAULT_GOAL := help
 
-ASPENMESH_NAMESPACE=aspenmesh
-ASPENMESH_NAMESPACE_SPEC=./kubernetes/namespace-aspenmesh.yaml
+ASPENMESH_NAMESPACE=istio-system
+ASPENMESH_NAMESPACE_SPEC=./kubernetes/namespace-istio-system.yaml
+# ASPENMESH_NAMESPACE=aspenmesh
+# ASPENMESH_NAMESPACE_SPEC=./kubernetes/namespace-aspenmesh.yaml
 
-OPENEBS_NAMESPACE=aspenmesh
+OPENEBS_NAMESPACE=openebs
 OPENEBS_NAMESPACE_SPEC=./kubernetes/namespace-openebs.yaml
 
 BOOKINFO_NAMESPACE=bookinfo

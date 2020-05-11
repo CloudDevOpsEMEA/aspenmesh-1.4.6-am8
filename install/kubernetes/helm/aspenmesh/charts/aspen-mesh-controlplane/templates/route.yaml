@@ -3,7 +3,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
     name: aspen-mesh-controlplane
-    namespace: istio-system
+    namespace: {{ .Release.Namespace }}
 spec:
   host: {{ .Values.userAuth.oauthOpenshift.host }}
   port:

@@ -67,7 +67,7 @@ spec:
             {{ if .Values.vetRunPeriod }}
             - "--vet-run-period={{ .Values.vetRunPeriod }}"
             {{ end }}
-            {{ if eq .Values.global.tracer.zipkin.address "aspen-mesh-jaeger-collector.istio-system:9411" }}
+            {{ if eq .Values.global.tracer.zipkin.address "aspen-mesh-jaeger-collector.{{ .Release.Namespace }}:9411" }}
             - "--jaeger-url=http://aspen-mesh-jaeger-query"
             {{ end }}
           ports:
