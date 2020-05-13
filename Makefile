@@ -41,7 +41,7 @@ helm_init_istio: ## Initialise istio CRDs
 ##### Aspenmesh ######
 helm_install_aspenmesh: ## Install aspenmesh
 	kubectl apply -f ${ASPENMESH_NAMESPACE_SPEC}
-	helm install aspenmesh ${HELM_ASPENMESH} --namespace ${ASPENMESH_NAMESPACE} --values ${ASPENMESH_LOCAL_VALUES}
+	helm install aspenmesh ${HELM_ASPENMESH} --namespace ${ASPENMESH_NAMESPACE} --values ${ASPENMESH_LOCAL_VALUES} --timeout 300s
 
 helm_upgrade_aspenmesh: ## Upgrade aspenmesh
 	kubectl apply -f ${ASPENMESH_NAMESPACE_SPEC}
