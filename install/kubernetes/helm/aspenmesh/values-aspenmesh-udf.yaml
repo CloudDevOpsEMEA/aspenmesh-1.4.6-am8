@@ -31,7 +31,7 @@ galley:
 gateways:
   istio-ingressgateway:
     enabled: true
-    autoscaleMin: 2
+    autoscaleMin: 3
     type: NodePort
     podAntiAffinityLabelSelector:
     - key: app
@@ -42,7 +42,7 @@ gateways:
       enabled: true
   istio-egressgateway:
     enabled: true
-    autoscaleMin: 2
+    autoscaleMin: 3
     podAntiAffinityLabelSelector:
     - key: app
       operator: In
