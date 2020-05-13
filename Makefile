@@ -33,9 +33,12 @@ HELM_ASPENMESH=./install/kubernetes/helm/aspenmesh
 ASPENMESH_LOCAL_VALUES=${HELM_ASPENMESH}/values-aspenmesh-udf.yaml
 
 ##### Istio init #####
-helm_init_istio: ## Initialise istio CRDs
+helm_init_istio_crd: ## Initialise istio CRDs
 	kubectl apply -f ${ASPENMESH_NAMESPACE_SPEC}
-	helm install istio-init ${HELM_ISTIO_INIT} --namespace ${ASPENMESH_NAMESPACE} 
+	helm install istio-init ${HELM_ISTIO_INIT} --namespace ${ASPENMESH_NAMESPACE}
+
+helm_remove_istio_crd: ## Remove istio CRDs
+	helm uninstall istio-init --namespace ${ASPENMESH_NAMESPACE}
 
 
 ##### Aspenmesh ######
@@ -49,7 +52,6 @@ helm_upgrade_aspenmesh: ## Upgrade aspenmesh
 
 helm_remove_aspenmesh: ## Remove aspenmesh
 	helm uninstall aspenmesh --namespace ${ASPENMESH_NAMESPACE}
-	helm uninstall istio-init --namespace ${ASPENMESH_NAMESPACE}
 	kubectl delete -f ${ASPENMESH_NAMESPACE_SPEC}
 
 
