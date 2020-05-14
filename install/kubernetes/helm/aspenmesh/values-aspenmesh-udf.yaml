@@ -239,6 +239,6 @@ external-dns:
     host: 10.1.1.4
     zone: aspen-demo.org
     tsigSecret: "jHCragCiSao1sRd1wc4sMQ=="
-    tsigSecretAlg: hmac-sha256
+    tsigSecretAlg: hmac-md5
     tsigKeyname: rndc-key
     tsigAxfr: true
