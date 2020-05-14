@@ -238,4 +238,4 @@ external-dns:
   rfc2136:
     host: 10.1.1.4
     zone: aspen-demo.org
-    insecure: true
+    tsigAxfr: false
