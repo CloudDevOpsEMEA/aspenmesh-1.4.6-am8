@@ -234,3 +234,7 @@ external-dns:
   provider: rfc2136
   sources: ["istio-gateway"]
   txtOwnerId: aspen-mesh-secure-ingress
+
+  rfc2136:
+    host: 10.1.1.4
+    zone: aspen-demo.org
