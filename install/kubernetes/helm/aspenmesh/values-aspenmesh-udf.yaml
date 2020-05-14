@@ -238,4 +238,7 @@ external-dns:
   rfc2136:
     host: 10.1.1.4
     zone: aspen-demo.org
-    tsigAxfr: false
+    tsigSecret: "jHCragCiSao1sRd1wc4sMQ=="
+    tsigSecretAlg: hmac-sha256
+    tsigKeyname: rndc-key
+    tsigAxfr: true
