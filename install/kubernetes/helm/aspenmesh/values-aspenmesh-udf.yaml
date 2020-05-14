@@ -151,7 +151,7 @@ aspen-mesh-secure-ingress:
   lets-encrypt-email: ""
   resources: {}
   externalDnsAnnotation: "policy.aspenmesh.io/externaldns"
-  externalDnsEnabled: false
+  externalDnsEnabled: true
 
 aspen-mesh-metrics-collector:
   serviceImage: metrics-collector-service-1.4.6-am8
@@ -226,11 +226,11 @@ cert-manager:
 
 external-dns:
   image: external-dns-1.4.6-am8
-  enabled: false
+  enabled: true
   fullnameOverride: aspen-mesh-external-dns
 
   annotationFilter: "policy.aspenmesh.io/externaldns=true"
   policy: sync
-  provider: aws
+  provider: rfc2136
   sources: ["istio-gateway"]
   txtOwnerId: aspen-mesh-secure-ingress
