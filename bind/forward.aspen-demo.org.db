@@ -1,10 +1,10 @@
 $TTL    10080
 @       IN      SOA     ns1.aspen-demo.org. root.aspen-demo.org. (
                               3         ; Serial
-                             60         ; Refresh
-                             30         ; Retry
-                          10080         ; Expire
-                          43200 )       ; Negative Cache TTL
+                             30         ; Refresh
+                             10         ; Retry
+                           5040         ; Expire
+                          21600 )       ; Negative Cache TTL
 ;
 ;@      IN      NS      localhost.
 ;@      IN      A       127.0.0.1

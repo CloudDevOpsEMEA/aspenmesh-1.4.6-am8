@@ -1,17 +1,17 @@
 $TTL    10080
 @       IN      SOA     aspen-demo.org. root.aspen-demo.org. (
                               3         ; Serial
-                             60         ; Refresh
-                             30         ; Retry
-                          10080         ; Expire
-                          43200 )       ; Negative Cache TTL
+                             30         ; Refresh
+                             10         ; Retry
+                           5040         ; Expire
+                          21600 )       ; Negative Cache TTL
 ;
 ;@      IN      NS      localhost.
 ;1.0.0  IN      PTR     localhost.
 
 ;Name Server Information
 
-@       IN      NS     ns1.aspen-demo.org.
+@       IN      NS    ns1.aspen-demo.org.
 
 ;Reverse lookup for Name Server
 

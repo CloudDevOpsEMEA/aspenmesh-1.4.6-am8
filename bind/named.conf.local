@@ -1,11 +1,17 @@
+options {
+    allow-query { any; };
+    allow-transfer { any; };
+};
+
+
 zone "aspen-demo.org" IN {
     type master;
     file "/etc/bind/forward.aspen-demo.org.db";
-    allow-update { 10.1.1.5;10.1.1.6;10.1.1.7;10.1.1.8; };
+    allow-update { any; };
 };
 
 zone "1.1.10.in-addr.arpa" IN {
      type master;
      file "/etc/bind/reverse.aspen-demo.org.db";
-     allow-update { 10.1.1.5;10.1.1.6;10.1.1.7;10.1.1.8; };
+     allow-update { any; };
 };
