@@ -97,7 +97,7 @@ install_nginx_plus: ## Install Nginx+
 	sudo cp -a /var/log/nginx /var/log/nginx-plus-backup
 	sudo mkdir -p /etc/ssl/nginx
 	sudo cp ./nginx/nginx-repo.key /etc/ssl/nginx
-	sudo cp ./nginxnginx-repo.crt /etc/ssl/nginx
+	sudo cp ./nginx/nginx-repo.crt /etc/ssl/nginx
 	sudo apt-key -y add ./nginx/nginx_signing.key
 	printf "deb https://plus-pkgs.nginx.com/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
 	sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90nginx
