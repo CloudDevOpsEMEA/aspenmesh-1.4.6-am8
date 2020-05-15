@@ -3,9 +3,6 @@
 set -x
 sudo service bind9 stop
 
-sudo cp usr.sbin.named /etc/apparmor.d/local/usr.sbin.named
-sudo apparmor_parser -r /etc/apparmor.d/usr.sbin.named
-
 sudo cp named.conf /etc/bind
 sudo cp named.conf.local /etc/bind
 sudo cp named.conf.options /etc/bind
