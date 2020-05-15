@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 sudo service bind9 stop
 
 sudo cp named.conf /etc/bind
@@ -15,20 +16,20 @@ sudo chmod -R 666 /etc/bind
 sudo chmod -R 666 /var/cache/bind
 
 sudo mkdir -p /var/log/bind
-sudo touch /var/log/named/client.log
-sudo touch /var/log/named/config.log
-sudo touch /var/log/named/default.log
-sudo touch /var/log/named/dispatch.log
-sudo touch /var/log/named/dnssec.log
-sudo touch /var/log/named/general.log
-sudo touch /var/log/named/lame_servers.log
-sudo touch /var/log/named/network.log
-sudo touch /var/log/named/queries.log
-sudo touch /var/log/named/resolver.log
-sudo touch /var/log/named/security.log
-sudo touch /var/log/named/unmatched.log
-sudo touch /var/log/named/update.log
-sudo touch /var/log/named/update_security.log
+sudo touch /var/log/bind/client.log
+sudo touch /var/log/bind/config.log
+sudo touch /var/log/bind/default.log
+sudo touch /var/log/bind/dispatch.log
+sudo touch /var/log/bind/dnssec.log
+sudo touch /var/log/bind/general.log
+sudo touch /var/log/bind/lame_servers.log
+sudo touch /var/log/bind/network.log
+sudo touch /var/log/bind/queries.log
+sudo touch /var/log/bind/resolver.log
+sudo touch /var/log/bind/security.log
+sudo touch /var/log/bind/unmatched.log
+sudo touch /var/log/bind/update.log
+sudo touch /var/log/bind/update_security.log
 
 sudo chown -R bind:bind /var/log/bind
 sudo chmod -R 666 /var/log/bind
