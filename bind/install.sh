@@ -10,10 +10,15 @@ sudo cp named.conf.options /etc/bind
 sudo cp forward.aspen-demo.org /var/cache/bind
 sudo cp named.conf.options /var/cache/bind
 
-sudo chown -R bind:bind /etc/bind
-sudo chown -R bind:bind /var/cache/bind
-sudo chmod -R 666 /etc/bind
-sudo chmod -R 666 /var/cache/bind
+sudo chown bind:bind /etc/bind
+sudo chown bind:bind /var/cache/bind
+sudo chmod 777 /etc/bind
+sudo chmod 777 /var/cache/bind
+
+sudo chown bind:bind /etc/bind/*
+sudo chown bind:bind /var/cache/bind/*
+sudo chmod 666 /etc/bind/*
+sudo chmod 666 /var/cache/bind/*
 
 sudo mkdir -p /var/log/bind
 sudo touch /var/log/bind/client.log
@@ -32,7 +37,10 @@ sudo touch /var/log/bind/update.log
 sudo touch /var/log/bind/update_security.log
 
 sudo chown -R bind:bind /var/log/bind
-sudo chmod -R 666 /var/log/bind
+sudo chmod -R 777 /var/log/bind
+
+sudo chown -R bind:bind /var/log/bind/*
+sudo chmod -R 666 /var/log/bind/*
 
 sudo service bind9 start
 sleep 10
