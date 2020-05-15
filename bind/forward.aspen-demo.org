@@ -1,0 +1,32 @@
+$TTL    10080
+@       IN      SOA     ns1.aspen-demo.org. root.aspen-demo.org. (
+                              3         ; Serial
+                             30         ; Refresh
+                             10         ; Retry
+                           5040         ; Expire
+                          21600 )       ; Negative Cache TTL
+;
+;@      IN      NS      localhost.
+;@      IN      A       127.0.0.1
+;@      IN      AAAA    ::1
+
+;Name Server Information
+
+@        IN      NS      ns1.aspen-demo.org.
+
+;IP address of Name Server
+
+ns1     IN      A       10.1.1.4
+
+;A – Record HostName To Ip Address
+
+hydra       IN       A      10.1.1.4
+jumphost    IN       A      10.1.1.4
+master      IN       A      10.1.1.5
+node1       IN       A      10.1.1.6
+node2       IN       A      10.1.1.7
+node3       IN       A      10.1.1.8
+
+;CNAME record
+
+;ftp     IN      CNAME   www.aspen-demo.org.

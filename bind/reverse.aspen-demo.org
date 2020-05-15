@@ -1,0 +1,27 @@
+$TTL    10080
+@       IN      SOA     aspen-demo.org. root.aspen-demo.org. (
+                              3         ; Serial
+                             30         ; Refresh
+                             10         ; Retry
+                           5040         ; Expire
+                          21600 )       ; Negative Cache TTL
+;
+;@      IN      NS      localhost.
+;1.0.0  IN      PTR     localhost.
+
+;Name Server Information
+
+@       IN      NS    ns1.aspen-demo.org.
+
+;Reverse lookup for Name Server
+
+4      IN      PTR    ns1.aspen-demo.org.
+
+;PTR Record IP address to HostName
+
+4      IN      PTR    hydra.aspen-demo.org.
+4      IN      PTR    jumphost.aspen-demo.org.
+5      IN      PTR    master.aspen-demo.org.
+6      IN      PTR    node1.aspen-demo.org.
+7      IN      PTR    node2.aspen-demo.org.
+8      IN      PTR    node3.aspen-demo.org.
