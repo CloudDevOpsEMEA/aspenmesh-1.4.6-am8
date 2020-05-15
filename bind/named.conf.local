@@ -1,11 +1,11 @@
 zone "aspen-demo.org" IN {
     type master;
-    file "/etc/bind/forward.aspen-demo.org.db";
+    file "forward.aspen-demo.org";
     allow-update { any; };
 };
 
 zone "1.1.10.in-addr.arpa" IN {
      type master;
-     file "/etc/bind/reverse.aspen-demo.org.db";
+     file "reverse.aspen-demo.org";
      allow-update { any; };
 };
