@@ -89,3 +89,21 @@ kubernetes_install_dashboard:: ## Install kubernetes dashboard
 
 kubernetes_remove_dashboard: ## Remove kubernetes dashboard
 	kubectl delete --namespace kube-system -f ${KUBE_DASHBOARD_SPEC}
+
+
+##### Install Nginx+ #####
+install_nginx_plus: ## Install Nginx+
+	sudo cp -a /etc/nginx /etc/nginx-plus-backup
+	sudo cp -a /var/log/nginx /var/log/nginx-plus-backup
+	sudo mkdir -p /etc/ssl/nginx
+	sudo cp ./nginx/nginx-repo.key /etc/ssl/nginx
+	sudo cp ./nginxnginx-repo.crt /etc/ssl/nginx
+	sudo apt-key -y add ./nginx/nginx_signing.key
+	printf "deb https://plus-pkgs.nginx.com/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
+	sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90nginx
+	sudo apt-get -y update
+	sudo apt-get -y install nginx-plus
+	nginx -v
+
+
+
