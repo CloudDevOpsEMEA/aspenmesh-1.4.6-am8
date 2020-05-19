@@ -8,7 +8,7 @@ sudo cp named.conf.local /etc/bind
 sudo cp named.conf.options /etc/bind
 
 sudo cp forward.aspen-demo.org /var/cache/bind
-sudo cp named.conf.options /var/cache/bind
+sudo cp reverse.aspen-demo.org /var/cache/bind
 
 sudo chown bind:bind /etc/bind
 sudo chown bind:bind /var/cache/bind
