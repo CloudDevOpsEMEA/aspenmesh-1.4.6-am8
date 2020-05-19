@@ -20,14 +20,24 @@ ns1     IN      A       10.1.1.4
 
 ;A – Record HostName To Ip Address
 
-hydra       IN       A      10.1.1.4
-jumphost    IN       A      10.1.1.4
-digibank    IN       A      10.1.1.4
-bookinfo    IN       A      10.1.1.4
-master      IN       A      10.1.1.5
-node1       IN       A      10.1.1.6
-node2       IN       A      10.1.1.7
-node3       IN       A      10.1.1.8
+jumphost            IN       A      10.1.1.4
+webmin              IN       A      10.1.1.4
+hydra               IN       A      10.1.1.4
+rancher-dashboard   IN       A      10.1.1.4
+
+k8s-dashboard       IN       A      10.1.1.4
+am-dashboard        IN       A      10.1.1.4
+am-metrics          IN       A      10.1.1.4
+jaeger              IN       A      10.1.1.4
+prometheus          IN       A      10.1.1.4
+
+digibank            IN       A      10.1.1.4
+bookinfo            IN       A      10.1.1.4
+
+master              IN       A      10.1.1.5
+node1               IN       A      10.1.1.6
+node2               IN       A      10.1.1.7
+node3               IN       A      10.1.1.8
 
 ;CNAME record
 
