@@ -67,7 +67,8 @@ helm_remove_openebs: ## Remove openebs
 ##### Ingress certificates #####
 install_certificates: ## Installs the certificates for secure ingress
 	kubectl apply -f ${ISTIO_SYSTEM_NAMESPACE_SPEC}
-	kubectl create secret tls --namespace ${ISTIO_SYSTEM_NAMESPACE} bookinfo-bookinfo --key ${PRIVATE_KEY_CERT} --cert ${WILDCARD_CERT}
+	kubectl create secret tls --namespace istio-system bookinfo-bookinfo --key ${PRIVATE_KEY_CERT} --cert ${WILDCARD_CERT}
+	kubectl create secret tls --namespace aspenmesh bookinfo-bookinfo --key ${PRIVATE_KEY_CERT} --cert ${WILDCARD_CERT}
 
 ##### Bookinfo Sample Application #####
 kubernetes_install_bookinfo: ## Install bookinfo sample application
