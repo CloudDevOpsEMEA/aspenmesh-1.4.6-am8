@@ -65,7 +65,7 @@ helm_remove_openebs: ## Remove openebs
 	kubectl delete -f ${OPENEBS_NAMESPACE_SPEC}
 
 ##### Ingress certificates #####
-installed_certificates: ## Installs the certificates for secure ingress
+install_certificates: ## Installs the certificates for secure ingress
 	kubectl apply -f ${ISTIO_SYSTEM_NAMESPACE_SPEC}
 	kubectl create secret tls --namespace ${ISTIO_SYSTEM_NAMESPACE} bookinfo-bookinfo --key ${PRIVATE_KEY_CERT} --cert ${WILDCARD_CERT}
 
