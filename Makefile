@@ -22,8 +22,8 @@ BOOKINFO_NAMESPACE_SPEC=./kubernetes/namespace-bookinfo.yaml
 ISTIO_SYSTEM_NAMESPACE=istio-system
 ISTIO_SYSTEM_NAMESPACE_SPEC=./kubernetes/namespace-istio-system.yaml
 
-PRIVATE_KEY_CERT=./kubernetes/private-key.pem
-WILDCARD_CERT=./kubernetes/wildcard-cert.pem
+PRIVATE_KEY_CERT=/home/ubuntu/aspen-demo-private-key.pem
+WILDCARD_CERT=/home/ubuntu/aspen-demo-wildcard-cert.pem
 
 KUBE_DASHBOARD_SPEC=./kubernetes/dashboard.yaml
 
