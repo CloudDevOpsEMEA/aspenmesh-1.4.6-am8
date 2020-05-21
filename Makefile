@@ -75,8 +75,10 @@ kubernetes_install_bookinfo: ## Install bookinfo sample application
 	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/pullsecret.yaml
 	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/bookinfo/platform/kube/bookinfo.yaml
 	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/bookinfo-traffic-generator.yaml
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f kubernetes/bookinfo-secure-ingress.yaml
 
 kubernetes_remove_bookinfo: ## Remove bookinfo sample application
+	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f kubernetes/bookinfo-secure-ingress.yaml
 	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/bookinfo-traffic-generator.yaml
 	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/bookinfo/platform/kube/bookinfo.yaml
 	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/pullsecret.yaml
