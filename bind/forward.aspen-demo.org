@@ -23,6 +23,7 @@ ns1     IN      A       10.1.1.4
 jumphost            IN       A      10.1.1.4
 webmin              IN       A      10.1.1.4
 hydra               IN       A      10.1.1.4
+rancher             IN       A      10.1.1.4
 rancher-dashboard   IN       A      10.1.1.4
 
 k8s-dashboard       IN       A      10.1.1.4
