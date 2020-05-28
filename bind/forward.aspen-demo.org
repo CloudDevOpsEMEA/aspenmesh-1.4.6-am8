@@ -34,6 +34,7 @@ prometheus          IN       A      10.1.1.4
 
 digibank            IN       A      10.1.1.4
 bookinfo            IN       A      10.1.1.4
+boutique            IN       A      10.1.1.4
 
 master              IN       A      10.1.1.5
 node1               IN       A      10.1.1.6
