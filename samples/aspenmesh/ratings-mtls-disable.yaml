@@ -3,7 +3,6 @@ apiVersion: authentication.istio.io/v1alpha1
 kind: Policy
 metadata:
   name: ratings
-  namespace: bookinfo
 spec:
   targets:
     - name: ratings
@@ -17,7 +16,6 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: ratings
-  namespace: default
 spec:
   host: "ratings.default.svc.cluster.local"
   trafficPolicy:

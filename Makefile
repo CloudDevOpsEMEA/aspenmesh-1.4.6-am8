@@ -84,6 +84,10 @@ kubernetes_remove_bookinfo: ## Remove bookinfo sample application
 	kubectl delete --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/pullsecret.yaml
 	kubectl delete -f ${BOOKINFO_NAMESPACE_SPEC}
 
+kubernetes_add_problems: ## Add missing mtls, slow traffic and 5xx error cases fro demo purposes
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/ratings-mtls-disable.yaml
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/ratings-slowdown-vs.yaml
+	kubectl apply --namespace ${BOOKINFO_NAMESPACE} -f samples/aspenmesh/reviews-v3-500.yaml
 
 ##### Kubernetes dashboard #####
 kubernetes_install_dashboard:: ## Install kubernetes dashboard
