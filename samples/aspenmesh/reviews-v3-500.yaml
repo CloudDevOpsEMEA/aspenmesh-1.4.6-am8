@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: reviews-v3
+  namespace: bookinfo
+  labels:
+    app: reviews
+    version: v3
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v3
+    spec:
+      containers:
+        - name: reviews
+          image: nrjpoddar/bookinfo:examples-bookinfo-reviews-v3-version-header
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9080
